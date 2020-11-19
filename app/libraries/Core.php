@@ -47,6 +47,7 @@
         $this->params = $url ? array_values($url) : [];
 
         // Call user func array
+        var_dump($this->currentMethod);
         call_user_func_array([$this->currentController, $this->currentMethod], $this->params);
     
      }

@@ -415,7 +415,7 @@ class Kost extends Controller
             // Validasi kode penyewa
             if (empty($data['kode_penyewa'])) {
                 $data['kode_penyewa_err'] = 'Mohon Isi Kode Penyewa';
-
+            }
             // Validasi tanggal
             if (empty($data['tanggal'])) {
                 $data['tanggal_err'] = 'Mohon Isi Tanggal';
@@ -459,12 +459,13 @@ class Kost extends Controller
             ];
     
             if (isLoggedIn() == 'Admin') {
+               
                 $this->view('kost/tambahTransaksiLain', $data);
             }else{
                 $this->view('cs/tambahTransaksiLain', $data);
             }  
         }
-    }
+        
 
 }
     public function update($id)
