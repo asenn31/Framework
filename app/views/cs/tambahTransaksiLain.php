@@ -8,7 +8,7 @@
                 <small>Silahkan Isi Form</small>
             </div>
             <div class="card-body">
-                <form action="<?php echo URLROOT;?>/user/tambahTransaksiLain" method="post">
+                <form action="<?php echo URLROOT;?>/cs/tambahTransaksiLain" method="post">
                     <div class="form-group">     
                       <label for="kode_penyewa">Kode Penyewa</label>
                       <input type="text" class="form-control <?php echo (!empty($data['kode_penyewa_err'])) ? 'is-invalid' : ''; ?>" name="kode_penyewa" id="kode_penyewa" value="<?php echo $data['kode_penyewa']; ?>">

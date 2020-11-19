@@ -1,6 +1,6 @@
 <?php require_once APPROOT.'/views/inc/header.php'; ?>
 
-<a class="btn btn-primary mb-3" href="<?php echo URLROOT; ?>/user/tambahTransaksi" role="button">Tambah Data</a>
+<a class="btn btn-primary mb-3" href="<?php echo URLROOT; ?>/cs/tambahTransaksi" role="button">Tambah Data</a>
 <form class="form-inline" action="" method = "get">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="kode_penyewa" id="search3">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cari Data</button>
@@ -25,7 +25,7 @@
             <td><?php echo $transaksi->tanggal_masuk; ?></td>
             <td><?php echo $transaksi->tanggal_keluar; ?></td>
             <td>
-                <a class="btn btn-danger" href="<?php echo URLROOT; ?>/user/hapusTransaksi/<?php echo $transaksi->id; ?>"  role="button"><i class="fas fa-trash    "></i></a>
+                <a class="btn btn-danger" href="<?php echo URLROOT; ?>/cs/hapusTransaksi/<?php echo $transaksi->id; ?>"  role="button"><i class="fas fa-trash    "></i></a>
             </td>
         </tr>
         <?php endforeach; ?>

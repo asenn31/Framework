@@ -2,7 +2,6 @@
 
 class Kost extends Controller
 {
-    //ada anjing di rumah
     public function __construct()
     {
         if (!isLoggedIn()){

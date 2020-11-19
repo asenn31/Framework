@@ -8,7 +8,7 @@
                 <small>Silahkan Isi Form</small>
             </div>
             <div class="card-body">
-                <form action="<?php echo URLROOT;?>/kost/update/<?php echo $data['penyewa']->id; ?>" method="post">
+                <form action="<?php echo URLROOT;?>/cs/update/<?php echo $data['penyewa']->id; ?>" method="post">
                     <div class="form-group">
                       <label for="kode_penyewa">Kode Penyewa</label>
                       <input required type="text" class="form-control" name="kode_penyewa" id="kode_penyewa" value="<?php echo $data['penyewa']->kode_penyewa; ?>">
