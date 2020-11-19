@@ -14,6 +14,7 @@
             // Panggil view
             require_once '../app/views/'.$view.'.php';
         } else {
+            var_dump($view);
             die('File tampilan tidak ada');
         }
      }
