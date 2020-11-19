@@ -10,6 +10,7 @@
      public function view($view, $data = [])
      {
         //  Cek jika file ada
+        var_dump($view);
         if (file_exists('../app/views/'.$view.'.php')) {
             // Panggil view
             require_once '../app/views/'.$view.'.php';
@@ -23,7 +24,7 @@
      {
         //  Panggil Model
         require_once '../app/models/'.$model.'.php';
-
+        
         // Kembalikan kedalam bentuk model
         return new $model();
 
