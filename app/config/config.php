@@ -7,7 +7,7 @@
 define('APPROOT', dirname(dirname(__FILE__)));
 
 // URLROOT
-define('URLROOT', 'http://localhost/Framework');
+define('URLROOT', 'http://localhost/NewFramework');
 
 // nama situs
 define('SITENAME', 'Random Kost Samarinda');
