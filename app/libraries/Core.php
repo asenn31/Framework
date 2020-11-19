@@ -25,7 +25,7 @@
         unset($url[0]);
 
         // Panggil controller
-        require_once '../app/controllers/'.$this->currentController.'.php';
+        require_once '../app/controllers/'.ucfirst($this->currentController).'.php';
 
         // Buat Instance
         $this->currentController = new $this->currentController;
