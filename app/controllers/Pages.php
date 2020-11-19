@@ -12,7 +12,7 @@ class Pages extends Controller
         if (isLoggedIn() == 'Admin') {
             $this->view('kost/indexAdmin');
         }else if(isLoggedIn() == 'User'){
-            $this->view('cs/indexUser');
+            $this->view('cs/indexCs');
         }else {
             $this->view('pages/index');
         }
