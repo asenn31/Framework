@@ -283,14 +283,20 @@ class Kost extends Controller
                 $datatambah = $this->kosModel->tambahKamar($data);
                 
                 if ($datatambah) {
-                    redirect('kost/kamar');
+                    if (isLoggedIn() == 'Admin') {
+                        redirect('kost/penyewa');
+                    }else if(isLoggedIn() == 'User'){
+                        redirect('cs/penyewa');
+                    }else{
+                        $this->view('pages/index');
+                    }
                 }
             } else {
                 // Load view dengan error
                 if (isLoggedIn() == 'Admin') {
-                    $this->view('kost/tambah', $data);
+                    $this->view('kost/tambahKamar', $data);
                 }else{
-                    $this->view('cs/tambah', $data);
+                    $this->view('cs/tambahKamar', $data);
                 }                
             }
 
@@ -307,7 +313,11 @@ class Kost extends Controller
                 'keterangan_err' => ''
             ];
     
-            $this->view('kost/tambahKamar', $data);
+            if (isLoggedIn() == 'Admin') {
+                $this->view('kost/tambahKamar', $data);
+            }else{
+                $this->view('cs/tambahKamar', $data);
+            }                
         }
     }
 
@@ -350,11 +360,21 @@ class Kost extends Controller
                 $datatambah = $this->kosModel->tambahTransaksi($data);
                 
                 if ($datatambah) {
-                    redirect('kost/transaksi');
+                    if (isLoggedIn() == 'Admin') {
+                        redirect('kost/transaksi');
+                    }else if(isLoggedIn() == 'User'){
+                        redirect('cs/transaksi');
+                    }else{
+                        $this->view('pages/index');
+                    }
                 }
             } else {
                 // Load view dengan error
-                $this->view('kost/tambahTransaksi', $data);
+                if (isLoggedIn() == 'Admin') {
+                    $this->view('kost/tambahTransaksi', $data);
+                }else{
+                    $this->view('cs/tambahTransaksi', $data);
+                }  
             }
 
             
@@ -370,7 +390,11 @@ class Kost extends Controller
                 'tanggal_keluar_err' => ''
             ];
     
-            $this->view('kost/tambahTransaksi', $data);
+            if (isLoggedIn() == 'Admin') {
+                $this->view('kost/tambahTransaksi', $data);
+            }else{
+                $this->view('cs/tambahTransaksi', $data);
+            }  
         }
     }
 
@@ -406,11 +430,21 @@ class Kost extends Controller
                 $datatambah = $this->kosModel->tambahTransaksiLain($data);
                 
                 if ($datatambah) {
-                    redirect('kost/transaksiLain');
+                    if (isLoggedIn() == 'Admin') {
+                        redirect('kost/transaksiLain');
+                    }else if(isLoggedIn() == 'User'){
+                        redirect('cs/transaksiLain');
+                    }else{
+                        $this->view('pages/index');
+                    }
                 }
             } else {
                 // Load view dengan error
-                $this->view('kost/tambahTransaksiLain', $data);
+                if (isLoggedIn() == 'Admin') {
+                    $this->view('kost/tambahTransaksiLain', $data);
+                }else{
+                    $this->view('cs/tambahTransaksiLain', $data);
+                }  
             }
 
             
@@ -424,7 +458,11 @@ class Kost extends Controller
                 'keterangan_err' => ''
             ];
     
-            $this->view('kost/tambahTransaksiLain', $data);
+            if (isLoggedIn() == 'Admin') {
+                $this->view('kost/tambahTransaksiLain', $data);
+            }else{
+                $this->view('cs/tambahTransaksiLain', $data);
+            }  
         }
     }
 
@@ -450,7 +488,7 @@ class Kost extends Controller
                     if (isLoggedIn() == 'Admin') {
                         redirect('kost/penyewa');
                     }else if(isLoggedIn() == 'User'){
-                        redirect('kost/index_User');
+                        redirect('kost/penyewa');
                     }else{
                         $this->view('pages/index');
                     }
@@ -461,8 +499,11 @@ class Kost extends Controller
             $data = [
                 'penyewa' => $kos
             ];
-    
-            $this->view('kost/update', $data);
+            if (isLoggedIn() == 'Admin') {
+                $this->view('kost/update', $data);
+            }else{
+                $this->view('cs/update', $data);
+            }  
         }
     }
     public function updateKamar($id)
@@ -484,7 +525,7 @@ class Kost extends Controller
                     if (isLoggedIn() == 'Admin') {
                         redirect('kost/kamar');
                     }else if(isLoggedIn() == 'User'){
-                        redirect('kost/index_User');
+                        redirect('cs/kamar');
                     }else{
                         $this->view('pages/index');
                     }
@@ -496,7 +537,11 @@ class Kost extends Controller
                 'kamar' => $kos
             ];
     
-            $this->view('kost/updateKamar', $data);
+            if (isLoggedIn() == 'Admin') {
+                $this->view('kost/updateKamar', $data);
+            }else{
+                $this->view('cs/updateKamar', $data);
+            }  
         }
     }
 
@@ -506,7 +551,7 @@ class Kost extends Controller
             if (isLoggedIn() == 'Admin') {
                 redirect('kost/penyewa');
             }else if(isLoggedIn() == 'User'){
-                redirect('kost/index_User');
+                redirect('cs/penyewa');
             }else{
                 $this->view('pages/index');
             }
@@ -521,7 +566,7 @@ class Kost extends Controller
             if (isLoggedIn() == 'Admin') {
                 redirect('kost/kamar');
             }else if(isLoggedIn() == 'User'){
-                redirect('kost/index_User');
+                redirect('cs/kamar');
             }else{
                 $this->view('pages/index');
             }
@@ -536,7 +581,7 @@ class Kost extends Controller
             if (isLoggedIn() == 'Admin') {
                 redirect('kost/transaksi');
             }else if(isLoggedIn() == 'User'){
-                redirect('kost/index_User');
+                redirect('cs/transaksi');
             }else{
                 $this->view('pages/index');
             }
@@ -551,7 +596,7 @@ class Kost extends Controller
             if (isLoggedIn() == 'Admin') {
                 redirect('kost/transaksiLain');
             }else if(isLoggedIn() == 'User'){
-                redirect('kost/transaksiLain');
+                redirect('cs/transaksiLain');
             }else{
                 $this->view('pages/index');
             }
