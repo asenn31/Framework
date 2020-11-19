@@ -14,11 +14,13 @@
      public function __construct()
      {
          $url = $this->getURL();
-
+         var_dump($url[0]);
         //  Setting Controller
-        if (file_exists('../app/controllers/'.ucwords($url[0]).'.php')) {
+        if (file_exists('../app/controllers/'.ucfirst($url[0]).'.php')) {
             // Ubah currentController
             $this->currentController = $url[0];
+        }else if(isLoggedIn()=="User"){
+            $this->currentController = "kost";
         }
 
         // Unset url index 0
